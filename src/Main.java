@@ -17,7 +17,7 @@ public class Main {
 
         IntStream.of(arr).filter(value -> value < 0).forEach(System.out::println);*/
 
-        Stream<String> objectStream = Arrays.stream(new String[]{"a", "b", "c"});
+        /*Stream<String> objectStream = Arrays.stream(new String[]{"a", "b", "c"});
         objectStream.forEach(System.out::println);
         Stream<String> objectStream1 = Stream.of("a", "b", "c");
         objectStream1.forEach(System.out::println);
@@ -39,6 +39,15 @@ public class Main {
 
         ArrayList<String> names = new ArrayList<>();
         Collections.addAll(names, "Joe", "Jack", "Linda");
-        names.stream().filter(value -> value.length() >= 4).forEach(System.out::println);
+        names.stream().filter(value -> value.length() >= 4).forEach(System.out::println);*/
+
+        Stream<String> passwords = Stream.of("4444", "55555", "7777777");
+        passwords.filter(pass -> pass.length() > 4).forEach(System.out::println);
+
+        Stream<String> values = Stream.of("value1", "value2", "value3", "value4", "value5");
+//        values.skip(2).forEach(System.out::println);
+        values.limit(3).forEach(System.out::println);
+
+
     }
 }
