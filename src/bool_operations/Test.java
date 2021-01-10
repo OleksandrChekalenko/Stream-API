@@ -1,5 +1,6 @@
 package bool_operations;
 
+import java.util.ArrayList;
 import java.util.stream.Stream;
 
 public class Test {
@@ -12,5 +13,18 @@ public class Test {
 
         Stream<Integer> noneMatchStream = Stream.of(0, 1, 2, 3, 4, 5);
         System.out.println(noneMatchStream.noneMatch(value -> value < 0));
+
+        Stream<Integer> countStream = Stream.of(-1, -2, 0, 1, 2);
+        System.out.println(countStream.count());
+
+        ArrayList<Ticket> tickets = new ArrayList<>();
+        tickets.add(new Ticket("A", 100));
+        tickets.add(new Ticket("B", 75));
+
+        Ticket minTicketPrice = tickets.stream().min(Ticket::compare).get();
+        System.out.printf("Minimum price of ticket class %s: $%d%n", minTicketPrice.getTicketClass(), minTicketPrice.getPrice());
+
+        Ticket maxTicketPrice = tickets.stream().max(Ticket::compare).get();
+        System.out.printf("Maximum price of ticket class %s: $%d%n", maxTicketPrice.getTicketClass(), maxTicketPrice.getPrice());
     }
 }
